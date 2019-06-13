@@ -1,0 +1,42 @@
+.MarkdownPreviewer {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.MP-title {
+  font-family: 'Courier New', Courier, monospace;
+  width: 100%;
+  text-align: center;
+  background: #527;
+  color: #eee;
+  margin: 0;
+  height: 60px;
+  line-height: 60px;
+}
+
+.MP-Preview {
+  width: 60%;
+  height: 100%;
+  overflow-y: scroll;
+  border: solid 1px  #527;
+}
+
+.MP-Preview > div {
+  padding: 10px;
+}
+
+.MP-Editor {
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.MP-input {
+  font-size: 14px;
+  top: 62px; bottom: 2px; left: 2px; right: 2px;
+  width: 39%;
+  position: absolute;
+}
