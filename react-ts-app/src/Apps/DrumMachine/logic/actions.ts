@@ -12,8 +12,9 @@ export const updateDisplay: ActionCreator<AnyAction> = (display) => {
 };
 
 export const adjustVolume: ActionCreator<AnyAction> = (volume: number) => {
+  const display = `Volume: ${volume}`
   return {
     type: ADJUST_VOLUME,
-    payload: { volume }
+    payload: { volume, display }
   }
 };

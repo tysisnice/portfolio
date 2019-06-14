@@ -1,3 +1,62 @@
+.DM-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: #ddd;
+  bottom: 0; left: 0; right: 0; top: 0;
+  font-family: sans-serif;
+}
+
 .DrumMachine {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: lightgrey;
+  max-width: 90%;
+  max-height: 90%;
+  min-width: 400px;
+  min-height: 500px;
+}
+
+
+.DM-Settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
+  padding: 5px 20px 5px 20px;
+}
+
+.DM-Settings > h1 {
+  height: 40px;
+  text-align: center;
+
+}
+
+.DrumMachine > .pads {
+  padding: 12px;
   display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  grid-gap: 12px;
+}
+
+.drum-pad {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: lightgreen;
+  border-radius: 18px;
+}
+
+.pad-pressed {
+  position: relative;
+  top: 2px;
+  background: pink;
+}
+
+.drum-pad:hover {
+  cursor: pointer;
+
 }

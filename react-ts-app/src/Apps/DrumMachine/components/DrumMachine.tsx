@@ -26,60 +26,26 @@ interface IDrumMachineState {
 
 
 class DrumMachine extends React.Component<IDrumMachineProps, IDrumMachineState> {
-  constructor(props: IDrumMachineProps) {
-    super(props);
-    this.state = {
-      pressed: ''
-    }
-    this.handlePress = this.handlePress.bind(this);
-    this.handleUnpress = this.handleUnpress.bind(this);
-  }
-
+  
   render() {
-    const { soundBoard, display, volume, adjustVolume } = this.props;
+    const { soundBoard, display, volume, adjustVolume, updateDisplay } = this.props;
     const drumPads = soundBoard.map( (e, i) => {
-      const pressed = this.state.pressed === e.char;
       return (
-        <DrumPad volume={volume} key={i+''} {...e} pressed={pressed} onUnpress={this.handleUnpress} updateState={this.handlePress} />
+        <DrumPad key={i+''} {...e} volume={volume} updateDisplay={updateDisplay}  />
       )
     });
     return (
-      <main className="DrumMachine" id="drum-machine">
-        <Settings display={display} volume={volume} adjustVolume={adjustVolume}/>
-        <div className="DM-keys">
-          {drumPads}
-        </div>
-      </main>
+      <div className="DM-container">
+        <main className="DrumMachine" id="drum-machine">
+          <Settings display={display} volume={volume} adjustVolume={adjustVolume}/>
+          <div className="pads">
+            {drumPads}
+          </div>
+        </main>
+      </div>
     );
   }
-
-  componentDidMount() {
-    document.addEventListener('keydown', (e) => this.handlePress(e.key));
-    document.addEventListener('keyup', this.handleUnpress);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('keydown', (e) => this.handlePress(e.key));
-    document.removeEventListener('keyup', this.handleUnpress);
-  }
-
-  handlePress(char: string) {
-    const padData = this.props.soundBoard.filter(e => e.char === char)[0];
-    const name = padData ? padData.name : '';
-    this.props.updateDisplay(name);
-
-    this.setState({
-      pressed: char
-    })
-  }
-
-  handleUnpress() {
-    this.setState({
-      pressed: ''
-    })
-  }
 }
-
 
 const mapStateToProps = ({ drumMachine }: AppState) => {
   const { soundBoard, volume, display } = drumMachine;
@@ -92,8 +58,8 @@ const mapStateToProps = ({ drumMachine }: AppState) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    updateDisplay: (name: string) => dispatch(updateDisplay(name)),
     adjustVolume: (volume: number) => dispatch(adjustVolume(volume)),
+    updateDisplay: (name: string) => dispatch(updateDisplay(name))
   };
 } 
 

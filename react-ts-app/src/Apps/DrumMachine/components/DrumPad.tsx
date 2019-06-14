@@ -3,30 +3,67 @@ import React from 'react';
 import { IDrumPad } from '../logic/state';
 
 interface IDrumPadProps extends IDrumPad {
-  updateState: (char: string) =>  any;
-  onUnpress: () => void;
-  pressed?: boolean;
+  updateDisplay: (charname: string) =>  void;
   volume: number;
 }
 
-function DrumPad (props: IDrumPadProps) {
-  const { pressed, char, name, audio, volume, updateState, onUnpress } = props;
-  const classname = `drum-pad${pressed ? ' pad-pressed' : ''}`
+interface IDrumPadState {
+  pressed: boolean;
+}
 
-  function handleClick(name: string) {
-    const audioEl = document.getElementById('DM-audio-'+char) as HTMLAudioElement;
-    audioEl.volume = volume / 100;
-    audioEl.play();
-    updateState(char);
+class DrumPad extends React.Component<IDrumPadProps, IDrumPadState> {
+  constructor(props: IDrumPadProps) {
+    super(props);
+    this.state = { pressed: false };
+    this.handlePress = this.handlePress.bind(this);
+    this.handleUnpress = this.handleUnpress.bind(this);
   }
 
-  return (
-    <div className={classname} onClick={() => handleClick(name)} onMouseUp={onUnpress}>
-      <h3>{char}</h3>
-      <p>{name}</p>
-      <audio id={'DM-audio-'+char} src={audio}>s</audio>
-    </div>
-    )
+  render() {
+    const { pressed } = this.state;
+    const { char, name, audio } = this.props;
+    const classname = `drum-pad${pressed ? ' pad-pressed' : ''}`
+  
+    return (
+      <div className={classname} onMouseDown={this.handlePress} onMouseUp={this.handleUnpress}>
+        <h3>{char.toUpperCase()}</h3>
+        <p>{name}</p>
+        <audio id={'DM-audio-'+char} src={audio}>s</audio>
+      </div>
+      )
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', e => {
+      e.key.toLowerCase() === this.props.char && this.handlePress();
+    });
+    document.addEventListener('keyup', e => {
+      e.key.toLowerCase() === this.props.char && this.handleUnpress();
+    });
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', e => {
+      e.key.toLowerCase() === this.props.char && this.handlePress();
+    });
+    document.removeEventListener('keyup', e => {
+      e.key.toLowerCase() === this.props.char && this.handleUnpress();
+    });
+  }
+
+  handlePress() {
+    const { char, volume, name } = this.props;
+    const audioEl = document.getElementById('DM-audio-'+char) as HTMLAudioElement;
+    audioEl.volume = volume / 100;
+    audioEl.currentTime = 0;
+    audioEl.play();
+    this.props.updateDisplay(name);
+    this.setState({ pressed: true });
+  }
+
+  handleUnpress() {
+    this.setState({ pressed: false })
+  }
 }
 
 
