@@ -15,11 +15,11 @@
   background: white;
   max-width: 90%;
   max-height: 90%;
-  min-width: 385px;
+  min-width: 387px;
   min-height: 480px;
   border: 1px solid grey;
   border-radius: 24px;
-  padding: 3px;
+  padding: 10px 3px 3px 3px;
 }
 
 
