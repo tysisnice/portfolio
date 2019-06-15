@@ -8,7 +8,7 @@ export interface IDrumPad {
 
 export default class DrumMachineState {
   constructor(soundBoard: IDrumPad[] = []) {
-    this.display = '';
+    this.display = "Tyson's sounds";
     this.volume = 50;
     this.soundBoard = soundBoard
   }
