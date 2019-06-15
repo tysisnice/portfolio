@@ -15,8 +15,8 @@
   background: white;
   max-width: 90%;
   max-height: 90%;
-  min-width: 420px;
-  min-height: 500px;
+  min-width: 390px;
+  min-height: 480px;
   border: 1px solid grey;
   border-radius: 24px;
   padding: 10px;
@@ -56,12 +56,12 @@
 }
 
 .drum-pad > h3 {
-  height: 10px;
+  height: 6px;
   font-size: 24px;
-  line-height: 41px;
+  line-height: 38px;
 }
 .drum-pad > p {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .pad-pressed {
