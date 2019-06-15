@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { HashRouter, Route, Switch, Link } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import './App.css';
@@ -34,7 +34,7 @@ function NotFound() {
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <HashRouter>
         <Switch>
           <Route exact={true} path='/' component={Filler}/>
           <Route path="/random-quote-machine" component={RandomQuoteMachineApp}/>
@@ -42,7 +42,7 @@ function App() {
           <Route path="/drum-machine" component={DrumMachineApp}/>
           <Route component={NotFound}/>
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
   );
 }

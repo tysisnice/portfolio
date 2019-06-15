@@ -22,13 +22,14 @@ class DrumPad extends React.Component<IDrumPadProps, IDrumPadState> {
   render() {
     const { pressed } = this.state;
     const { char, name, audio } = this.props;
-    const classname = `drum-pad${pressed ? ' pad-pressed' : ''}`
+    const classname = `drum-pad${pressed ? ' pad-pressed' : ''}`;
+    const charUpper = char.toUpperCase();
   
     return (
-      <div className={classname} onMouseDown={this.handlePress} onMouseUp={this.handleUnpress}>
-        <h3>{char.toUpperCase()}</h3>
+      <div id={name} className={classname} onMouseDown={this.handlePress} onMouseUp={this.handleUnpress}>
+        <h3>{charUpper}</h3>
         <p>{name}</p>
-        <audio id={'DM-audio-'+char} src={audio}>s</audio>
+        <audio id={charUpper} src={audio}>s</audio>
       </div>
       )
   }
@@ -53,7 +54,7 @@ class DrumPad extends React.Component<IDrumPadProps, IDrumPadState> {
 
   handlePress() {
     const { char, volume, name } = this.props;
-    const audioEl = document.getElementById('DM-audio-'+char) as HTMLAudioElement;
+    const audioEl = document.getElementById(char.toUpperCase()) as HTMLAudioElement;
     audioEl.volume = volume / 100;
     audioEl.currentTime = 0;
     audioEl.play();

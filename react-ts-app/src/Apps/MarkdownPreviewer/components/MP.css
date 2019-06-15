@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   max-height: 100vh;
-  overflow: hidden;
 }
 
 .MP-title {
@@ -20,11 +19,11 @@
 .MP-Preview {
   width: 60%;
   height: 100%;
-  overflow-y: scroll;
   border: solid 1px  #527;
 }
 
 .MP-Preview > div {
+  height: 100%;
   padding: 10px;
 }
 

@@ -15,7 +15,7 @@ function Settings({ display, volume, adjustVolume }: ISettingsProps) {
   }
   return (
     <div className="DM-Settings">
-      <h1>{display}</h1>
+      <h1 id="display">{display}</h1>
       <input type="range" onChange={handleChange} value={volume}/>
     </div>
   );
