@@ -26,7 +26,7 @@ class DrumPad extends React.Component<IDrumPadProps, IDrumPadState> {
     const charUpper = char.toUpperCase();
   
     return (
-      <div id={name} className={classname} onMouseDown={this.handlePress} onMouseUp={this.handleUnpress}>
+      <div id={name} className={classname} onTouchStart={this.handlePress} onTouchEnd={this.handleUnpress} onMouseDown={this.handlePress} onMouseUp={this.handleUnpress}>
         <h3>{charUpper}</h3>
         <p>{name}</p>
         <audio id={charUpper} src={audio}>s</audio>
