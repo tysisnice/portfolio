@@ -7,6 +7,7 @@ import './App.css';
 import RandomQuoteMachineApp from './Apps/RandomQuoteMachine';
 import MarkdownPreviewerApp from './Apps/MarkdownPreviewer';
 import DrumMachineApp from './Apps/DrumMachine';
+import CalculatorApp from './Apps/Calculator';
 
 function Filler() {
   return (
@@ -16,6 +17,7 @@ function Filler() {
         <li><Link to="/random-quote-machine">Random Quote Machine</Link></li>
         <li><Link to="/markdown-previewer">Markdown Previewer</Link></li>
         <li><Link to="/drum-machine">Drum Machine</Link></li>
+        <li><Link to="/calculator">Calculator</Link></li>
       </ul>
     </div>
   )
@@ -40,6 +42,7 @@ function App() {
           <Route path="/random-quote-machine" component={RandomQuoteMachineApp}/>
           <Route path="/markdown-previewer" component={MarkdownPreviewerApp}/>
           <Route path="/drum-machine" component={DrumMachineApp}/>
+          <Route path="/calculator" component={CalculatorApp}/>
           <Route component={NotFound}/>
         </Switch>
       </HashRouter>

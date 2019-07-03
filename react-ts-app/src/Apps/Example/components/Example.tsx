@@ -1,11 +1,12 @@
 
 import React from 'react';
+import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
+
 import { AppState } from '../../../store';
+import { actionCreator } from '../logic/actions';
 
 import './ExampleComponent.css';
-import { Dispatch } from 'redux';
-import { actionCreator } from '../logic/actions';
 
 interface IEProps {
   prop: string,
@@ -24,7 +25,7 @@ class ExampleComponent extends React.Component<IEProps> {
 }
 
 const mapStateToProps = (state: AppState) => {
-
+  
   return {
     prop: ' f '
   }

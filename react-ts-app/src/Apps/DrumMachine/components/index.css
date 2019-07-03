@@ -52,6 +52,7 @@
   background: white;
   border: solid 1px lightgrey;
   border-radius: 18px;
+  font-size: 0;
 
 }
 
@@ -62,6 +63,7 @@
 }
 .drum-pad > p {
   margin-bottom: 16px;
+  font-size: 16px;
 }
 
 .pad-pressed {

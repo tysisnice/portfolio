@@ -1,7 +1,7 @@
 
-export class ExampleState {
+export default class ExampleState {
   constructor(prop: any) {
-    this.payload = prop;
+    this.payload = { prop };
   }
   payload: any;
 }
