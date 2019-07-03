@@ -1,10 +1,9 @@
 
-import PomodoroApp from './components/Pomodoro';
-import pomodoro from './logic/reducer'
-import PomodoroState from './logic/state';
+import ExampleApp from './components/Example';
+import exampleReducer, { ExampleState } from './logic';
 
-export default PomodoroApp;
+export default ExampleApp;
 export { 
-  pomodoro,
-  PomodoroState
+  exampleReducer,
+  ExampleState
 };

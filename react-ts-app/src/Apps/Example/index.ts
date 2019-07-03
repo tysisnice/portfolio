@@ -1,7 +1,6 @@
 
 import ExampleApp from './components/Example';
-import exampleReducer from './logic/reducer'
-import ExampleState from './logic/state';
+import exampleReducer, { ExampleState } from './logic';
 
 export default ExampleApp;
 export { 
