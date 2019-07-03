@@ -5,7 +5,7 @@ import { AppState } from '../../../store';
 
 import './MP.css';
 import { Dispatch, AnyAction } from 'redux';
-import { updateMarkdown } from '../logic/actions';
+import { updateMarkdown } from '../logic';
 
 import Editor from './Editor';
 import Preview from './Preview'
@@ -48,7 +48,7 @@ const mapStateToProps = ({ markdownPreviewer }: AppState) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    submitDraft: (input: string) => dispatch(updateMarkdown(input))
+    submitDraft: (input: string) => dispatch(updateMarkdown({ input }))
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(MarkdownPreviewer);

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { nextQuote } from '../logic/actions';
+import { nextQuote } from '../logic';
 import { connect } from 'react-redux';
 import { AppState } from '../../../store';
 import { Dispatch } from 'redux';
@@ -37,7 +37,7 @@ function mapStateToProps({ randomQuoteMachine }: AppState) {
 
 function mapDispatchToProps(dispatch: Dispatch) {
   return {
-    newQuote: () => dispatch(nextQuote())
+    newQuote: () => dispatch(nextQuote({}))
   }
 }
 

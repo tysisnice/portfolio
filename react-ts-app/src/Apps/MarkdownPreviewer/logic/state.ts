@@ -1,5 +1,6 @@
+import { initMarkdown } from '.';
+import { store } from '../../../store';
 
-import { convertMarkdown } from './actions';
 
 const storedInput = localStorage.getItem('markdown data');
 
@@ -50,6 +51,23 @@ And here. | Okay. | I think we get it.
 ![React Logo w/ Text](https://goo.gl/Umyytc)
 `
 
+export let marked: any;
+export function convertMarkdown(input: string): string {
+  let converted = '';
+  if (marked) {
+    converted = marked(input);
+  }
+  else {
+    import('marked')
+      .then(data => {
+        data.setOptions({ breaks: true });
+        marked = data.default;
+        store.dispatch(initMarkdown({ result: marked(input) }));
+      });
+      converted = input;
+  }
+  return converted;
+};
 
 export class MarkdownState {
   constructor(input: string) {

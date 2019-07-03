@@ -56,6 +56,9 @@ class DrumPad extends React.Component<IDrumPadProps, IDrumPadState> {
   handlePress() {
     const { char, volume, name } = this.props;
     const audioEl = document.getElementById(char.toUpperCase()) as HTMLAudioElement;
+    if (!audioEl) {
+      return;
+    }
     audioEl.volume = volume / 100;
     audioEl.currentTime = 0;
     audioEl.play();

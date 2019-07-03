@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 import { AppState, AnyDispatch } from '../../../store';
 
 import './Calculator.css';
-import { calcOp, equals, deleter, clearAll } from '../logic/actions';
-import CalculatorState from '../logic/state';
+import { calcOp, equals, deleter, clearAll, CalculatorState } from '../logic';
 
 interface ICalculatorProps extends CalculatorState {
   calcOp: (op: string) => any;
@@ -16,10 +15,6 @@ interface ICalculatorProps extends CalculatorState {
 }
 
 class Calculator extends React.Component<ICalculatorProps> {
-
-  constructor(props: ICalculatorProps) {
-    super(props);
-  }
 
   render() {
     const { newWindow, props } = this;
@@ -68,7 +63,7 @@ const mapStateToProps = ({ calculator }: AppState) => {
 
 const mapDispatchToProps = (dispatch: AnyDispatch) => {
   return {
-    calcOp: (op: string) => dispatch(calcOp(op)),
+    calcOp: (operation: string) => dispatch(calcOp({ operation })),
     equals: () => dispatch(equals()),
     deleter: () => dispatch(deleter()),
     clearAll: () => dispatch(clearAll())

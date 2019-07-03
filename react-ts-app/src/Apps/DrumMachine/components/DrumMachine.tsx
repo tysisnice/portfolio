@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { AppState } from '../../../store';
 
 import { Dispatch } from 'redux';
-import { updateDisplay, adjustVolume } from '../logic/actions';
+import { updateDisplay, adjustVolume } from '../logic';
 
 import Settings from './Settings';
 import DrumPad from './DrumPad';
@@ -58,8 +58,8 @@ const mapStateToProps = ({ drumMachine }: AppState) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    adjustVolume: (volume: number) => dispatch(adjustVolume(volume)),
-    updateDisplay: (name: string) => dispatch(updateDisplay(name))
+    adjustVolume: (volume: number) => dispatch(adjustVolume({ volume })),
+    updateDisplay: (display: string) => dispatch(updateDisplay({ display }))
   };
 } 
 

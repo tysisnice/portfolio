@@ -1,7 +1,6 @@
 
 import CalculatorApp from './components/Calculator';
-import calculator from './logic/reducer'
-import CalculatorState from './logic/state';
+import calculator, { CalculatorState } from './logic/';
 
 export default CalculatorApp;
 export { 

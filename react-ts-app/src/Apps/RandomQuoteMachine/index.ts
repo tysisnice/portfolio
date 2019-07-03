@@ -1,7 +1,6 @@
 
 import RandomQuoteMachineApp from './components/RandomQuoteMachine';
-import randomQuoteMachine from './logic/reducer';
-import { RandomQuoteState } from './logic/state'
+import randomQuoteMachine, { RandomQuoteState } from './logic';
 
 export default RandomQuoteMachineApp;
 export { 

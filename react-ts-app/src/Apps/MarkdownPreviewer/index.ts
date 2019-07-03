@@ -1,7 +1,6 @@
 
 import MarkdownPreviewerApp from './components/MarkdownPreviewer';
-import markdownPreviewer from './logic/reducer';
-import { MarkdownState } from './logic/state';
+import markdownPreviewer, { MarkdownState } from './logic';
 
 export default MarkdownPreviewerApp;
 export { 
