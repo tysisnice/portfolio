@@ -1,14 +1,14 @@
 
 
 export interface ISelection {
-  image: string,
-  quote: string,
-  quoter: string
+  image: string;
+  quote: string;
+  quoter: string;
 };
 
 export interface IQuote {
-  quote: string,
-  quoter: string
+  quote: string;
+  quoter: string;
 }
 
 export class RandomQuoteState {
@@ -19,7 +19,6 @@ export class RandomQuoteState {
       return Object.assign({}, item, {image: allImages[index]});
     });
     const mockSelection: ISelection = {image: '', quote: '', quoter: ''};
-    this.index = 0;
     this.currentSelection = selections.shift() || mockSelection;
     this.nextSelection = selections.shift() || mockSelection;
     selections.push(this.currentSelection, this.nextSelection);
@@ -30,7 +29,7 @@ export class RandomQuoteState {
   };
   allImages: string[];
   allQuotes: IQuote[];
-  index: number
+  index: number;
   allSelections: ISelection[];
   currentSelection: ISelection;
   nextSelection: ISelection;

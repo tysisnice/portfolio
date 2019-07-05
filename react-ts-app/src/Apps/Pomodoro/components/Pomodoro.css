@@ -1,0 +1,98 @@
+
+.Pomodoro {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
+  background: linear-gradient(45deg, #fbb, #fec);
+  color: #537;
+}
+
+.Pomodoro > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Pomodoro > div > h1 {
+  font-size: 60px;
+  font-weight: 900;
+  background: pink;
+  border: 6px solid #537;
+  color: #537;
+  width: 240px;
+  height: 80px;
+  line-height: 88px;
+  border-radius: 22px;
+  margin: 28px;
+  padding: 5px;
+}
+
+.Pomodoro > div > h2 {
+  font-size: 20px;
+}
+
+.P-button-container {
+  margin-top: 4px;
+}
+
+.P-button-container > button {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: #537;
+  border: 2px solid #537;
+  background: pink;
+  border-radius: 14px;
+  font-size: 20px;
+  padding: 8px 12px 8px 12px;
+  margin: 10px;
+  transition: 0.4s;
+  outline: none;
+  user-select: none;
+}
+.P-button-container > button:hover {
+  background: pink;
+  border: 2px solid salmon;
+  color: salmon;
+  cursor: pointer;
+  transition: 0s;
+}
+.P-button-container > button:active {
+  background: salmon;
+  color: pink;
+  cursor: pointer;
+  transition: 0s;
+}
+
+.P-button-container.other {
+  margin: 0px 0px 0px 20px;
+}
+
+.P-button-container.other > button {
+  margin: 5px;
+  width: 44px;
+  height: 40px;
+  font-size: 30px;
+  line-height: 24px;
+}
+
+.P-TimeGroup {
+  display: flex;
+  align-items: center;
+  margin: 15px;
+}
+
+#timer-label {
+  height: 0px;
+  margin: 10px 0px -10px 0px;
+  color: #537;
+  font-family: 'Courier New', Courier, monospace
+}

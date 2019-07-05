@@ -6,9 +6,9 @@ const slice: Slice = createSlice({
   slice: 'markdown-previewer',
   initialState,
   reducers: {
-    updateMarkdown(state, { payload: {input} }) {
+    updateMarkdown(state, { payload: { input } }) {
       const result = convertMarkdown(input);
-      return { result, input };
+      return { ...state, result, input };
     },
     initMarkdown(state, { payload: { result } }) {
       return { ...state, result };

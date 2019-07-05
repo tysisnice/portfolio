@@ -8,6 +8,7 @@ import RandomQuoteMachineApp from './Apps/RandomQuoteMachine';
 import MarkdownPreviewerApp from './Apps/MarkdownPreviewer';
 import DrumMachineApp from './Apps/DrumMachine';
 import CalculatorApp from './Apps/Calculator';
+import PomodoroApp from './Apps/Pomodoro';
 
 function Filler() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/markdown-previewer" component={MarkdownPreviewerApp}/>
           <Route path="/drum-machine" component={DrumMachineApp}/>
           <Route path="/calculator" component={CalculatorApp}/>
+          <Route path="/pomodoro" component={PomodoroApp}/>
           <Route component={NotFound}/>
         </Switch>
       </HashRouter>

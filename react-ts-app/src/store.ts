@@ -1,21 +1,18 @@
 
-import { 
-  createStore, 
-  Store, 
-  combineReducers,
+import {
+  Store,
   ActionCreator,
   AnyAction,
-  Dispatch,
-  applyMiddleware
+  Dispatch
 } from 'redux';
 import { ThunkAction } from 'redux-thunk';
-import { configureStore, getDefaultMiddleware } from 'redux-starter-kit';
+import { configureStore } from 'redux-starter-kit';
 
 import { randomQuoteMachine, RandomQuoteState } from './Apps/RandomQuoteMachine';
 import { markdownPreviewer, MarkdownState } from './Apps/MarkdownPreviewer';
 import { drumMachine, DrumMachineState } from './Apps/DrumMachine';
 import { calculator, CalculatorState } from './Apps/Calculator';
-//import { pomodoro, PomodoroState } from './Apps/Pomodoro';
+import { pomodoro, PomodoroState } from './Apps/Pomodoro';
 
 export type ThunkResult = AnyAction | ThunkAction<void | Promise<void>, AppState, undefined, AnyAction>;
 export type ThunkActionCreator = ActionCreator<ThunkResult>
@@ -26,19 +23,8 @@ export interface AppState {
   markdownPreviewer: MarkdownState,
   drumMachine: DrumMachineState,
   calculator: CalculatorState,
-  //pomodoro: PomodoroState
+  pomodoro: PomodoroState
 }
-
-// export const store: Store = createStore(
-//   combineReducers({
-//     randomQuoteMachine,
-//     markdownPreviewer,
-//     drumMachine,
-//     calculator,
-//     pomodoro
-//   }),
-//   composeWithDevTools(applyMiddleware(thunk))
-// );
 
 export const store: Store = configureStore({
   reducer: {
@@ -46,9 +32,7 @@ export const store: Store = configureStore({
     markdownPreviewer,
     drumMachine,
     calculator,
-    //pomodoro
+    pomodoro
   }
 })
-
-
 

@@ -1,10 +1,5 @@
-import { initMarkdown } from '.';
-import { store } from '../../../store';
 
-
-const storedInput = localStorage.getItem('markdown data');
-
-const initialInput = storedInput || `# Welcome to my React Markdown Previewer!
+const initialInput = `# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
 ### And here's some other cool stuff:
@@ -62,7 +57,8 @@ export function convertMarkdown(input: string): string {
       .then(data => {
         data.setOptions({ breaks: true });
         marked = data.default;
-        store.dispatch(initMarkdown({ result: marked(input) }));
+        const result = marked(input);
+        //store.dispatch(initMarkdown({ result }));
       });
       converted = input;
   }
