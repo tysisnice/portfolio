@@ -1,9 +1,10 @@
 
 export function getReadableTime(time: number) {
-  const minutes = (time/1000/60) << 0;
+  let minutes: string | number = (time/1000/60) << 0;
   let seconds: number | string = Math.round((time/1000) % 60);
   seconds === 60 && (seconds = 59);
   seconds < 10 && (seconds = '0' + seconds);
+  minutes < 10 && (minutes = '0' + minutes);
   return `${minutes}:${seconds}`;
 }
 
