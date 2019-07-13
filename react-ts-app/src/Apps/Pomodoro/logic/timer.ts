@@ -15,6 +15,7 @@ export function timeUp() {
   audio.play();
   clearInterval(theTimer);
   dispatch(timerIsUp());
+  alert('TIME UP!');
 }
 
 export function setTimer() {
