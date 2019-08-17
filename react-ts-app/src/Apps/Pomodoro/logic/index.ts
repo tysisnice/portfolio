@@ -75,7 +75,7 @@ const slice = createSlice({
     timerIsUp(state) {
       const { working, workTime, breakTime } = state;
       const newState = new PomodoroState(workTime.setTime, breakTime.setTime);
-      setTimeout(() => store.dispatch(toggleTimer()), 1000);
+      setTimeout(() => store.dispatch(toggleTimer()), 1);
       return { ...newState, working: !working, timerRunning: false };
     },
 

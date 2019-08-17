@@ -9,6 +9,7 @@ import MarkdownPreviewerApp from './Apps/MarkdownPreviewer';
 import DrumMachineApp from './Apps/DrumMachine';
 import CalculatorApp from './Apps/Calculator';
 import PomodoroApp from './Apps/Pomodoro';
+import BarChart from './Apps/D3/BarChart/BarChart';
 
 function Filler() {
   return (
@@ -20,6 +21,7 @@ function Filler() {
         <li><Link to="/drum-machine">Drum Machine</Link></li>
         <li><Link to="/calculator">Calculator</Link></li>
         <li><Link to="/pomodoro">Pomodoro Timer</Link></li>
+        <li><Link to="/bar-chart">Bar Chart</Link></li>
       </ul>
     </div>
   )
@@ -46,6 +48,7 @@ function App() {
           <Route path="/drum-machine" component={DrumMachineApp}/>
           <Route path="/calculator" component={CalculatorApp}/>
           <Route path="/pomodoro" component={PomodoroApp}/>
+          <Route path="/bar-chart" component={BarChart}/>
           <Route component={NotFound}/>
         </Switch>
       </HashRouter>
