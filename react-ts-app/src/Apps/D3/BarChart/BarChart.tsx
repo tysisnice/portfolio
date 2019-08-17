@@ -51,10 +51,11 @@ class BarChart extends React.Component<IProps, IState> {
   }
 
   componentDidUpdate() {
+    const docWidth = document.documentElement.clientWidth;
     const dataset = this.state.data;
-    const h = 350;
-    const w = 700;
     const padding = 50;
+    const h = 350;
+    const w =  docWidth > 800 ? 700 : docWidth - padding * 2;
     const l = dataset.length;
     const yearSet = dataset.map(e => {
       return Number.parseInt(e[0].substring(0,4));
@@ -87,8 +88,8 @@ class BarChart extends React.Component<IProps, IState> {
       tooltip.setAttribute('data-date', date);
       tooltip.setAttribute('visible', 'ok');
       tooltip.innerText = quarter + `$${gpd} billion`;
-      tooltip.style.top = (globalY - 30) + 'px';
-      tooltip.style.left = (globalX + 20) + 'px';
+      tooltip.style.top = (globalY - 80) + 'px';
+      tooltip.style.left = (globalX - 80) + 'px';
     } 
 
     function mouseleave() {
