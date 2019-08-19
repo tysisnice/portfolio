@@ -18,6 +18,11 @@ html {
   font-family: var(--font-1);
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 header.Home {
   padding: 0;
   margin: 0;
