@@ -6,21 +6,18 @@ import                    './index.css';
 // import { connect }        from 'react-redux';
 // import store              from '../../redux/store.js';
 // import * as actions       from '../../redux/actions';
-import PureRenderMixin    from 'react-addons-pure-render-mixin';
 
 
 
 // create pure component
-export const Unit = React.createClass({
+export class Unit extends React.Component {
 
-	mixins: [PureRenderMixin],
-
-  getClassName: function() {
+  getClassName() {
     if (this.props.old) return 'CGL-old';
     return this.props.alive ? 'CGL-alive' : 'CGL-dead';
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <div className='CGL-unitblock'>
         <div className={this.getClassName() + ' CGL-unit'}
@@ -33,7 +30,7 @@ export const Unit = React.createClass({
     );
   }
 
-});
+};
 
 
 

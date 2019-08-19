@@ -2,6 +2,10 @@
 	text-align: center;
 	justify-content: center;
 }
+.CGL-board > h1 {
+	font-size: 34px;
+	font-weight: bolder;
+}
 
 .CGL-row {
 	text-align: center;
@@ -42,20 +46,20 @@
 	.CGL-button:focus { outline: 0; }
 
 .CGL-gen {
-	width: 140px;
-	height: 30px;
+	width: 160px;
+	height: 34px;
 	font-size: 16px;
+	font-weight: 100;
 	line-height: 34px;
-	padding: 0;
 	padding-left: 15px;
-	padding-right: -10px;
+	padding-right: 0px;
 	margin: -1px;
+	transform: translate(0, -1px);
 	border: 2px solid #ddd;
 	background-color: white;
 	text-decoration: none;
 	display: inline-flex;
 	text-align: center;
-
 }.CGL-gen:focus { outline: 0; }
 
 

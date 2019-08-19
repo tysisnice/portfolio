@@ -22,7 +22,7 @@ class ShareButtons extends React.Component<IQuote> {
         <a className="RQM-btn" href={facebookLink} target="_blank" rel="noopener noreferrer">
           <img src={facebook} alt="facebook"/>Share
         </a>
-        <a className="RQM-btn" href=" " onClick={this.copyQuote} rel="noopener noreferrer">
+        <a className="RQM-btn" href="#/random-quote-machine" onClick={this.copyQuote} rel="noopener noreferrer">
           <img src={copy} alt="copy"/>Copy
         </a>
         <textarea id="RQM-copied-value" readOnly={true} value={`'${quote}' \n- ${quoter}`}/>

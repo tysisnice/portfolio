@@ -11,6 +11,7 @@ import DrumMachineApp from './Apps/DrumMachine';
 import CalculatorApp from './Apps/Calculator';
 import PomodoroApp from './Apps/Pomodoro';
 import BarChart from './Apps/D3/BarChart/BarChart';
+//import SimonBot from './Apps/SimonBot/SimonBot';
 
 function Filler() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path="/calculator" component={CalculatorApp}/>
           <Route path="/pomodoro" component={PomodoroApp}/>
           <Route path="/bar-chart" component={BarChart}/>
+          <Route path="/simon-bot" component={NotFound}/>
           <Route component={NotFound}/>
         </Switch>
       </HashRouter>

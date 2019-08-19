@@ -1,10 +1,5 @@
 
-import {
-  Store,
-  ActionCreator,
-  AnyAction,
-  Dispatch
-} from 'redux';
+import { Store, ActionCreator, AnyAction, Dispatch } from 'redux';
 import { ThunkAction } from 'redux-thunk';
 import { configureStore } from 'redux-starter-kit';
 

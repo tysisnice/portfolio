@@ -4,42 +4,39 @@ import React                 from 'react';
 // import { Link } from 'react-router';
 import { connect }           from 'react-redux';
 import * as actions          from '../../redux/actions';
-import PureRenderMixin       from 'react-addons-pure-render-mixin';
 
 import { Unit }              from '../Unit';
-import store                 from '../../../../store';
+import { store }             from '../../../../store';
 
 import './index.css';
 
 
 var timer;
 // create pure component
-export const Board = React.createClass({
-
-  mixins: [PureRenderMixin],
+export class Board extends React.Component {
   
   constructor(props) {
     super(props);
     store.dispatch({type: 'CGL_SETUP'});
     store.dispatch({type: 'CGL_RANDOMIZE'});
-  },
+  }
 
-  renderUnits: function(row, rowIndex) {
+  renderUnits(row, rowIndex) {
     return row.map((tile, tileIndex) => {
       return (
         <Unit //unitId={tile.get('id')}
               row={rowIndex}
               column={tileIndex}
-              key={'key '+tile.get('id')}
-              alive={tile.get('alive')}
-              old={tile.get('old')}
+              key={'key '+tile.id}
+              alive={tile.alive}
+              old={tile.old}
               unitClick={this.props.unitClick}
               />
       );
     });
-  },
+  }
 
-  renderRows: function() {
+  renderRows() {
     return this.props.boardMap.map((row, index) => {
       return (
         <div //style={{width: this.props.rowWidth}}
@@ -50,12 +47,13 @@ export const Board = React.createClass({
         </div>
       );
     })
-  },
+  }
 
-  render: function() {
+  render() {
     const { playPause, gameRunning, resetBoard, randomize, generations } = this.props;
     return (
       <div className="CGL-board">
+        <h1>Conway's Game of Life</h1>
         <div className="CGL-button-container">
           <button className='CGL-button' onClick={playPause}>
             {gameRunning ? 'Pause' : 'Play'}
@@ -75,19 +73,19 @@ export const Board = React.createClass({
         </div>
       </div>
     );
-  },
+  }
 
-  componentDidMount: function() {
+  componentDidMount() {
     timer = setInterval(() => {
       store.dispatch({type: 'CGL_RUN_GAME'});
     }, 0.1);
-  },
+  }
 
-  componentWillUnmount: function() {
+  componentWillUnmount() {
     clearInterval(timer);
   }
 
-});
+};
 
 
 
@@ -102,6 +100,6 @@ const mapStateToProps = function({conways}) {
   };
 };
 
-export const BoardContainer = connect(mapStateToProps, actions)(Board);
+export const ConwaysBoard = connect(mapStateToProps, actions)(Board);
 
 

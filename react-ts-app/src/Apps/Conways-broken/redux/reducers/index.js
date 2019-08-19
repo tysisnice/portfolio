@@ -1,11 +1,29 @@
 
-
 const initialState = {
 		width: 50,
 		height: 34,
 		gameRunning: true,
 		generations: 0,
-		firstPlay: true
+		firstPlay: true,
+		boardMap: [[{ old: true, alive: true, id: 'id0.0' }]],
+		get: function(key) {
+			return this[key];
+		},
+		set(key, val) {
+			return Object.assign({}, this, { [key]: val });
+		},
+		setIn(path, value) {
+			let newState = Object.assign({}, this);
+			let key = newState;
+			path.forEach(e => {
+				key = key[e];
+			});
+			key = value;
+			return newState;
+		},
+		update(key, func) {
+			return { ...this, [key]: func(this[key]) }
+		}
 	};
 
 
@@ -13,21 +31,21 @@ const initialState = {
 // the actual reducer
 const reducer = function(state = initialState, action) {
 
+	const width = state.get('width');
+	const height = state.get('height');
+
 	switch(action.type) {
 
 		case 'CGL_FIRST':
 			const f = state.get('firstPlay');
 			if (f) {
 				return state
-					.set('boardMap', setBoard(state.get('width'), state.get('height')))
 					.set('generations', 0)
 					.set('firstPlay', false)
-					.set('boardMap', randomize(state.get('boardMap')));
+					.set('boardMap', randomize(width,height));
 			} return state;
 
 		case 'CGL_SETUP':
-			const width = state.get('width');
-			const height = state.get('height');
 			return state.set('boardMap', setBoard(width, height)).set('generations', 0);
 
 		case 'CGL_UNIT_CLICK':
@@ -38,7 +56,7 @@ const reducer = function(state = initialState, action) {
 			return state.update("gameRunning", running => !running);
 
 		case 'CGL_RANDOMIZE':
-			return state.set('boardMap', randomize(state.get('boardMap')));
+			return state.set('boardMap', randomize(width, height));
 
 		case 'CGL_RUN_GAME':
 			if (state.get('gameRunning')) {
@@ -69,7 +87,8 @@ function setBoard(width, height) {
 }
 
 
-function randomize(board) {
+function randomize(w, h) {
+	const board = setBoard(w, h);
 	for ( var i = 0; i < board.length; i++ ) {
 		for ( var o = 0; o < board[i].length; o++ ) {
 			const randomNum = Math.floor(Math.random() * 5);

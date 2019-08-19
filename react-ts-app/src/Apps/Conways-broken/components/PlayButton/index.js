@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import './index.css';
 import store from '../../redux/store';
 
@@ -16,11 +15,11 @@ export default class PlayButton extends Component {
   render() {
     return (
     	<div onClick={startGame}>
-	      <Link to='conways-play'  style={{ textDecoration: 'none' }}>
+	      <a href='#/conways-play'  style={{ textDecoration: 'none' }}>
 		      <div className="CGL-playButton">
 		        Play the Game of Life!
 		      </div>
-		    </Link>
+		    </a>
 		  </div>
     );
   }
