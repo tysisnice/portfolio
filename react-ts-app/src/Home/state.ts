@@ -52,6 +52,14 @@ const initialState = [
   },
   
   {
+    title: 'D3 Bar Chart',
+    description: 'Very simple bar chart showing USA GPD data. Built with D3 and React',
+    url: '#/bar-chart',
+    img: 'https://lh3.googleusercontent.com/eZophQJLqrU4kFEBdpJ4cMyBentDpRxRHvzE78AkzIdjznv6JB5x9I2GuQRz0jSZx6OdixnPvAq_FpVX35dvthttBQhNz--Vjj51uiw3vhIVV2Jv2V34haC3rwSCrI27UwIFcDO6uhF8bRFvCIJDSQuU5vY0O2vh8KnIKaaa2cmNKTVMV_c-LC2_IC5Jx65TVGGHDCp3jyqdP0nhyvCJ2cjexj5cfKoMemOrfYsmYm1kWd8yBflkSCtj-PVjHKz76eODDThxN9UNxUiBHn5JqeiDD6pzXE-hg8z-jUQBJuBIjZylClpBXqThakk8fIokITKzDzpg9mvu6lUqsixyXrXo-o8goROvZfou5tFVL8LSj3FIOWjSsqwE_mxkLRGuEeBgx1Fd7i8gtnXJAQPU8yvty5mmMJ3jSUcNREgB6HNcrObzGk5BBi-IabAFPgq6tJzMENdYojddyBBNi-ji-sPyo9gbFwh3u1Nnl5nCUZFOhjqOPTF6boZgvVYYBxKQTUWvYWVAQJprw_7upIk1tfrJ0I_oVIUgeaPlF7pAkIGeDWMnFq_WBxPc8F8jqD9mrWU26zaNYAwHfXS0A9ZG5k6Uu6Br7Rcb0MihEFGa4czRL73cUhmlTE7UiW_hQIRK8RLEPFEi7X3uyc3WMNHpCzEzQJ2hoRMS=w872-h545-no',
+    code: 'https://github.com/tysisnice/portfolio/tree/master/react-ts-app/src/Apps/D3/BarChart'
+  },
+  
+  {
     title: 'Simon Says Game',
     description: 'A fun memory game where you need to follow the computers moves. Built with JQuery',
     url: 'https://codepen.io/tysisnice/full/vXmoYz',
