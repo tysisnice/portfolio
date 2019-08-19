@@ -8,6 +8,7 @@ import {
 import { ThunkAction } from 'redux-thunk';
 import { configureStore } from 'redux-starter-kit';
 
+import { home, HomeState } from './Home';
 import { randomQuoteMachine, RandomQuoteState } from './Apps/RandomQuoteMachine';
 import { markdownPreviewer, MarkdownState } from './Apps/MarkdownPreviewer';
 import { drumMachine, DrumMachineState } from './Apps/DrumMachine';
@@ -19,6 +20,7 @@ export type ThunkActionCreator = ActionCreator<ThunkResult>
 export type AnyDispatch = Dispatch | any;
 
 export interface AppState {
+  home: HomeState,
   randomQuoteMachine: RandomQuoteState,
   markdownPreviewer: MarkdownState,
   drumMachine: DrumMachineState,
@@ -28,6 +30,7 @@ export interface AppState {
 
 export const store: Store = configureStore({
   reducer: {
+    home,
     randomQuoteMachine,
     markdownPreviewer,
     drumMachine,

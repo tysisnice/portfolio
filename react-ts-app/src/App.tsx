@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import './App.css';
 
+import Home from './Home';
 import RandomQuoteMachineApp from './Apps/RandomQuoteMachine';
 import MarkdownPreviewerApp from './Apps/MarkdownPreviewer';
 import DrumMachineApp from './Apps/DrumMachine';
@@ -42,7 +43,7 @@ function App() {
     <Provider store={store}>
       <HashRouter>
         <Switch>
-          <Route exact={true} path='/' component={Filler}/>
+          <Route exact={true} path='/' component={Home}/>
           <Route path="/random-quote-machine" component={RandomQuoteMachineApp}/>
           <Route path="/markdown-previewer" component={MarkdownPreviewerApp}/>
           <Route path="/drum-machine" component={DrumMachineApp}/>
